@@ -16,7 +16,18 @@ return array(
     'user/login' => 'getAdmin/getLogin',
     'user/logout' => 'getAdmin/dieSession',
     'admin' => 'getAdmin/index',
+
+    //Роуты для дополнительного здания.(перевести работу админки на Js/Ajax.)
+
+    'addGenreWithAjax' => 'adminGenre/addGenreWithAjax',
+    'updateGenreWithAjax' => 'adminGenre/updateGenreWithAjax',
+    'addAuthorWithAjax' => 'adminAuthor/addAuthorWithAjax',
+    'updateAuthorWithAjax' => 'adminAuthor/updateAuthorWithAjax',
+    'addBookWithAjax' => 'adminBooks/addBookWithAjax',
+    'updateBookWithAjax' => 'adminBooks/updateBookWithAjax',
+
+    //======================================================================
+
     'order' => 'order/send',
     '' => 'content/index',
 );
-

@@ -13,6 +13,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/src/css/homePage.css" rel="stylesheet">
+    <link href="/src/css/order.css" rel="stylesheet">
 </head>
 
 <body class="bg-dark">
@@ -77,10 +78,16 @@
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <form  id="mail_to" action="/order" method="post">
-                <input type="hidden" name="bookId" class="form-control" id="id" aria-describedby="emailHelp" value="<?php $bookById['id'] ?>">
-                <input type="hidden" name="bookTitle" class="form-control" id="title" aria-describedby="emailHelp value="<?php $bookById['title'] ?>">
-                <input type="hidden" name="bookPrice" class="form-control" id="price" aria-describedby="emailHelp value="<?php $bookById['price'] ?>">
+            <form action="/order" method="post" id="order" >
+                <div class="form-group">
+                    <input type="hidden" name="bookId" class="form-control" id="bookId" value="<?php echo $bookById['id'] ?>">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="bookTitle" class="form-control" id="bookId" value="<?php echo $bookById['title'] ?>">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="bookPrice" class="form-control" id="bookId" value="<?php echo $bookById['price'] ?>">
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Address</label>
                     <input name="userAddress" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your address...">
@@ -94,8 +101,21 @@
                     <label for="exampleInputPassword1">Count</label>
                     <input name="count" class="form-control" id="exampleInputPassword1" placeholder="Count...">
                 </div>
-                <button type="submit" class="btn btn-primary col-4">Order</button>
+                <div class="my-4">
+                  <input id="orderByAjax" type="button" class="form-control btn-info col-3" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value="ORDER" />
+                </div>
             </form>
+            <div id="spinner" class="my-2 mb-2 pb-3">
+              <img src="/src/images/ajaxSpinner.gif" width="60" height="60" />
+            </div>
+            <div id="ui-response">
+              <p><span id="message"></span></p>
+            </div>
+            <div>
+              <a href="/">
+                  <button type="button" class="btn btn-success col-3">BACK to Home</button>
+              </a>
+            </div>
         </div>
     </div>
 </div>
@@ -149,6 +169,16 @@
         </div>
     </div>
 </footer>
+
+<!-- Скрипт по дополнительному ТЗ(перевести работу админки на Js/Ajax) -->
+<!-- Я прошу прощения за старый скрипт для формы заказа, каюсь, исправился. -->
+
+<script src="/./src/js/js_ajax_order.js"></script>
+
+<!-- ========================================================================== -->
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -160,6 +190,6 @@
         text: 'Thumbnail'
     });
 </script>
-<script src="/./src/js/order.js"></script>
+<!-- <script src="/./src/js/order.js"></script> -->
 </body>
 </html>
